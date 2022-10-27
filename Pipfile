@@ -10,6 +10,7 @@ ccxt = "*"
 numpy = "*"
 pandas = "*"
 pandas-ta = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
