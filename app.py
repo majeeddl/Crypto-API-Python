@@ -3,20 +3,15 @@ import os
 from flask import Flask,jsonify,Request
 from flask_restful import Api
 
-from adapters.resources.home import HomeApi
+from configuration.config import ENV_PORT,ENV_DEBUG
+from adapters.resources.home_resource import HomeResource
 
 app = Flask(__name__)
 
 api = Api(app)
 
-# @app.route("/")
-# def home():
-#     return " Hello Flask"
-
-api.add_resource(HomeApi,"/")
+api.add_resource(HomeResource,"/")
 
 
 if __name__ == 'main' :
-    ENV_DEBUG=os.getenv("DEBUG",True)
-    ENV_PORT=os.getenv("PORT",5000)
     app.run(debug=ENV_DEBUG,port=ENV_PORT,use_reloader=True)

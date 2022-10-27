@@ -4,7 +4,14 @@
       "path": "."
     }
   ],
-  "settings": {},
+  "settings": {
+    "files.exclude": {
+      "__pycache__": true,
+      ".idea": true,
+      ".venv": true,
+      "**/*/__pycache__": true
+    }
+  },
   "launch": {
     "version": "0.2.0",
     "configurations": []

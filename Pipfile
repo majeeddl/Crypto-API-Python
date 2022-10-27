@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-restful = "*"
+ccxt = "*"
+numpy = "*"
+pandas = "*"
+pandas-ta = "*"
 
 [dev-packages]
 
