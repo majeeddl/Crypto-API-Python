@@ -11,8 +11,13 @@ numpy = "*"
 pandas = "*"
 pandas-ta = "*"
 python-dotenv = "*"
+python-telegram-bot = "*"
+pika = "*"
 
 [dev-packages]
 
 [requires]
 python_version = "3.9"
+
+[pipenv]
+allow_prereleases = true

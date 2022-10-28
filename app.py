@@ -6,6 +6,7 @@ from adapters.resources.telegram_resource import TelegramReource
 
 from configuration.config import ENV_PORT,ENV_DEBUG
 from adapters.resources.home_resource import HomeResource
+from frameworks.telegram_services.telergram_service import run_telegram_service
 
 app = Flask(__name__)
 
