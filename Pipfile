@@ -13,6 +13,8 @@ pandas-ta = "*"
 python-dotenv = "*"
 python-telegram-bot = "*"
 pika = "*"
+websocket = "*"
+websocket-client = "*"
 
 [dev-packages]
 
