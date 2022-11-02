@@ -14,11 +14,7 @@ app = Flask(__name__)
 api = Api(app)
 
 api.add_resource(HomeResource,"/")
-api.add_resource(TelegramReource,"/telegram")
-
-
-
-
+# api.add_resource(TelegramReource,"/telegram")
 
 
 
