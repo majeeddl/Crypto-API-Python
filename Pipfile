@@ -17,6 +17,7 @@ websocket = "*"
 websocket-client = "*"
 bybit-ws = "*"
 pybit = "*"
+pymongo = "*"
 
 [dev-packages]
 
