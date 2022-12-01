@@ -19,4 +19,4 @@ api.add_resource(HomeResource,"/")
 
 
 if __name__ == 'main' :
-    app.run(debug=ENV_DEBUG,port=ENV_PORT,use_reloader=True,threaded=True)
+    app.run(debug=ENV_DEBUG,port=ENV_PORT,use_reloader=False,threaded=True)
