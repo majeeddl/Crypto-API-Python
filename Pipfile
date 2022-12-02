@@ -18,6 +18,7 @@ websocket-client = "*"
 bybit-ws = "*"
 pybit = "*"
 pymongo = "*"
+dependency-injector = "*"
 
 [dev-packages]
 

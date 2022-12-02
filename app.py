@@ -1,22 +1,30 @@
 import os
 import websocket
 
-from flask import Flask,jsonify,Request
-from flask_restful import Api
-from adapters.resources.telegram_resource import TelegramReource
+from flask import Flask, jsonify, Request
+# from dependency_injector.wiring import Provide, inject
 
-from configuration.config import ENV_PORT,ENV_DEBUG
-from adapters.resources.home_resource import HomeResource
-from frameworks.telegram_services.telergram_service import run_telegram_service
+
+from adapters.api import initAPI
+from configuration.config import ENV_PORT, ENV_DEBUG
+from containers import Container
+# from containers import Containers
+# from use_cases.user.users_useCase import UserUseCases
+
+# containers = Containers()
+# containers.wire(modules=[__name__])
+
+container = Container()
 
 app = Flask(__name__)
+# app.container = containers
+app.container = container
 
-api = Api(app)
+initAPI(app)
 
-api.add_resource(HomeResource,"/")
-# api.add_resource(TelegramReource,"/telegram")
-
+app.run(debug=ENV_DEBUG, port=ENV_PORT, use_reloader=False, threaded=True)
 
 
-if __name__ == 'main' :
-    app.run(debug=ENV_DEBUG,port=ENV_PORT,use_reloader=False,threaded=True)
+
+# if __name__ == 'main':
+    
