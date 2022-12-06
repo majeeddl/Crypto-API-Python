@@ -8,11 +8,11 @@ from use_cases.user.users_useCase import UserUseCases
 
 class UseCasesContainer(containers.DeclarativeContainer):
 
-    config = providers.Configuration()
+    # config = providers.Configuration()
 
-    userUseCase = providers.Factory(
+    userUseCase  = providers.Factory(
         UserUseCases,
-        config=config
+        # config=config
     )
 
     # exchangeUseCase = providers.Container(

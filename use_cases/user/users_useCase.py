@@ -1,8 +1,10 @@
 
 
 class UserUseCases:
-    # def __init__(self) -> None:
-    #     super().__init__()
+    def __init__(self) -> None:
+
+        self.dataServices = 
+        super().__init__()
 
     def getUsers(self):
         return "salam"
