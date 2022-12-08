@@ -1,11 +1,10 @@
 
 
-from domain.abstracts.data_service_abstract import DataServiceAbstract
+from domain.abstracts.data_service_abstract import DataServicesAbstract
+from frameworks.data_services.mongo.mongo_data_services import MongoDataServices
 
 
-class DataServices(DataServiceAbstract):
+class DataServices(MongoDataServices):
 
     def __init__(self) -> None:
-
-
-        self.users = 
+        super().__init__()

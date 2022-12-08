@@ -3,9 +3,15 @@
 from abc import ABC, abstractmethod, abstractproperty
 
 
-class DataServiceAbstract(ABC):
+class DataServicesAbstract(ABC):
 
-    # @abstractmethod
-    @abstractproperty
+    @property
+    @abstractmethod
     def users(self):
+        '''users property'''
         pass
+
+    # @abstractproperty
+    # def exchanges(self):
+    #     '''exchanges property'''
+    #     pass

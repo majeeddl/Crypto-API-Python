@@ -1,16 +1,20 @@
 
 
+from domain.abstracts.data_service_abstract import DataServicesAbstract
+from frameworks.data_services.mongo.repository.user_repository import UserRepository
 
-from domain.entities.user_entity import User
-from frameworks.data_services.mongo.repository.mongo_repository import MongoRepository
 
+class MongoDataServices(DataServicesAbstract):
 
-class MongoDataServices:
+    # users: UserRepository
 
-    def __init__(self) -> None:
+    # def __init__(self) -> None:
+    #     # self.users = UserRepository()
+    #     pass
 
-        self.users = MongoRepository[User]
-        pass
+    @property
+    def users(self):
+        return UserRepository()
 
-    # def users():
-    #     return self
+    # def exchanges(self):
+    #     return []

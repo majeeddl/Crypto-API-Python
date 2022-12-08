@@ -10,7 +10,7 @@ MONGO_URI = os.getenv('MONGO_URI')
 
 class Config:
 
-    TELEGRAM_BOT_TOKEN='5570461772:AAGQQzTNlEI8XeJWiE50JV3UcfY9fq96A0A'
+    TELEGRAM_BOT_TOKEN=''
 
     @staticmethod
     def telegram_url():

@@ -5,5 +5,5 @@
 class BaseEntity:
 
     _id : str
-
-    pass
+    createdAt:str
+    updatedAt:str

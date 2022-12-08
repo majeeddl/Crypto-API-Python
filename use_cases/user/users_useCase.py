@@ -1,10 +1,11 @@
 
 
+from frameworks.data_services.data_services import DataServices
+
+
 class UserUseCases:
     def __init__(self) -> None:
-
-        self.dataServices = 
-        super().__init__()
+        self.dataServices = DataServices()
 
     def getUsers(self):
-        return "salam"
+        return self.dataServices.users.find()
