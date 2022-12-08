@@ -3,6 +3,8 @@ from abc import abstractmethod
 import pymongo
 from typing import Generic, TypeVar
 
+from domain.utils.shared_utils import ConvertDictToClass
+
 T = TypeVar('T')
 
 
@@ -14,8 +16,8 @@ class MongoRepository(Generic[T]):
         self.collection = self.database[collection_name]
 
     @abstractmethod
-    def find(self,options) -> list[T]:
-        return self.collection.find()
+    def find(self) -> list[T]:
+        return list(map(lambda x: ConvertDictToClass(x), self.collection.find()))
 
     @abstractmethod
     def findById(self, id: str) -> T:
