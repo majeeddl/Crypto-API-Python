@@ -6,7 +6,10 @@ from domain.entities.base_entity import BaseEntity
 
 class Exchange(BaseEntity):
 
-    def __init__(self) -> None:
-        super().__init__()
+    name:str
+    description:str
 
-    pass
+    # def __init__(self) -> None:
+    #     super().__init__()
+
+    # pass

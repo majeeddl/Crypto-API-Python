@@ -1,6 +1,7 @@
 
 
 from domain.abstracts.data_service_abstract import DataServicesAbstract
+from frameworks.data_services.mongo.repository.exchange_repository import ExchangeRepository
 from frameworks.data_services.mongo.repository.user_repository import UserRepository
 
 
@@ -16,5 +17,6 @@ class MongoDataServices(DataServicesAbstract):
     def users(self):
         return UserRepository()
 
-    # def exchanges(self):
-    #     return []
+    @property
+    def exchanges(self):
+        return ExchangeRepository()
