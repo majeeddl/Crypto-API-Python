@@ -1,7 +1,5 @@
 
 
-
-
 from frameworks.data_services.mongo.repository.mongo_repository import MongoRepository
 from domain.entities.user_entity import User
 

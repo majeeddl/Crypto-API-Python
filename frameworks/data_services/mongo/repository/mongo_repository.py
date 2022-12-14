@@ -4,6 +4,7 @@ import pymongo
 from typing import Generic, TypeVar
 
 from domain.utils.shared_utils import ConvertDictToClass
+from bson.objectid import ObjectId
 
 T = TypeVar('T')
 
@@ -26,3 +27,14 @@ class MongoRepository(Generic[T]):
     @abstractmethod
     def create(self, entity: T) -> T:
         return self.collection.insert_one(entity)
+
+    @abstractmethod
+    def update(self, entity : T) -> T:
+        _id = ObjectId(entity._id)
+        _set = entity.__dict__
+        del _set['_id']
+        return self.collection.update_one({ "_id" : _id } , {"$set" : _set})
+
+    @abstractmethod
+    def delete(self,id:str) -> None :
+        self.collection.delete_one({ '_id' : id})

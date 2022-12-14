@@ -9,7 +9,10 @@ ws_linear = usdt_perpetual.WebSocket(
 
 
 def handle_message(msg):
+    print(type(msg))
     print(msg)
+    print(msg['data'][0]['price'])
+    print("***************")
 
 
 # To subscribe to multiple symbols,
