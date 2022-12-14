@@ -11,7 +11,8 @@ class DataServicesAbstract(ABC):
         '''users property'''
         pass
 
-    # @abstractproperty
-    # def exchanges(self):
-    #     '''exchanges property'''
-    #     pass
+    @property
+    @abstractmethod
+    def exchanges(self):
+        '''exchanges property'''
+        pass
