@@ -31,4 +31,10 @@ class MongoRepository(Generic[T]):
     @abstractmethod
     def update(self, entity : T) -> T:
         _id = ObjectId(entity._id)
-        return self.collection.update_one({ "_id" : _id } , {"$set" : en})
+        _set = entity.__dict__
+        del _set['_id']
+        return self.collection.update_one({ "_id" : _id } , {"$set" : _set})
+
+    @abstractmethod
+    def delete(self,id:str) -> None :
+        self.collection.delete_one({ '_id' : id})
