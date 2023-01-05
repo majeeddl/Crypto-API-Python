@@ -1,13 +1,13 @@
 
 from abc import abstractmethod
-import pymongo
 from typing import Generic, TypeVar
 
 from domain.utils.shared_utils import ConvertDictToClass
+
+import pymongo
 from bson.objectid import ObjectId
 
 T = TypeVar('T')
-
 
 class MongoRepository(Generic[T]):
 
@@ -21,8 +21,12 @@ class MongoRepository(Generic[T]):
         return list(map(lambda x: ConvertDictToClass(x), self.collection.find()))
 
     @abstractmethod
+    def findOne(self,query) -> T :
+        return ConvertDictToClass(self.collection.find_one(query))
+
+    @abstractmethod
     def findById(self, id: str) -> T:
-        return self.collection.find_one({'_id': id})
+        return ConvertDictToClass(self.findOne({'_id': id}))
 
     @abstractmethod
     def create(self, entity: T) -> T:
@@ -30,7 +34,9 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def update(self, entity: T) -> T:
-        _id = ObjectId(entity._id)
+        if ObjectId.is_valid(entity._id) :
+            _id = ObjectId(entity._id)
+        
         _set = entity.__dict__
         del _set['_id']
         return self.collection.update_one({"_id": _id}, {"$set": _set})
@@ -41,4 +47,4 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def delete(self, query) -> None:
-        self.collection.delete_one(query)
+        self.collection.find_one_and_delete(query)

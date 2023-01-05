@@ -10,7 +10,7 @@ def clean_up():
     userRepository.delete({'username': 'test_user'})
 
 
-def test_createUserTest(clean_up):
+def test_repository_createUser(clean_up):
 
     userRepository = UserRepository()
 
@@ -21,5 +21,14 @@ def test_createUserTest(clean_up):
     assert createduserId != None
 
 
-def test_2():
-    print('two')
+def test_respository_updateUser():
+
+    userRepository = UserRepository()
+
+    findUser : User = userRepository.findOne({'username': 'test_user'})
+
+    findUser.name = "test_user_name_updated"
+
+    result = userRepository.update(findUser)
+
+    print(result)
