@@ -26,15 +26,19 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def create(self, entity: T) -> T:
-        return self.collection.insert_one(entity)
+        return self.collection.insert_one(entity.__dict__).inserted_id
 
     @abstractmethod
-    def update(self, entity : T) -> T:
+    def update(self, entity: T) -> T:
         _id = ObjectId(entity._id)
         _set = entity.__dict__
         del _set['_id']
-        return self.collection.update_one({ "_id" : _id } , {"$set" : _set})
+        return self.collection.update_one({"_id": _id}, {"$set": _set})
 
     @abstractmethod
-    def delete(self,id:str) -> None :
-        self.collection.delete_one({ '_id' : id})
+    def deleteById(self, id: str) -> None:
+        self.collection.delete_one({'_id': id})
+
+    @abstractmethod
+    def delete(self, query) -> None:
+        self.collection.delete_one(query)
