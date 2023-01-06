@@ -1,9 +1,10 @@
-
+from datetime import datetime
 from abc import abstractmethod
-import pymongo
 from typing import Generic, TypeVar
 
-from domain.utils.shared_utils import ConvertDictToClass
+from domain.utils.shared_utils import ConvertDictToClass, DictFromClass, DictToObj
+
+import pymongo
 from bson.objectid import ObjectId
 
 T = TypeVar('T')
@@ -18,11 +19,19 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def find(self) -> list[T]:
-        return list(map(lambda x: ConvertDictToClass(x), self.collection.find()))
+        return list(map(lambda x: DictToObj(x), self.collection.find()))
+
+    @abstractmethod
+    def findOne(self, query) -> T:
+        findOne = self.collection.find_one(query)
+        return DictToObj(findOne)
 
     @abstractmethod
     def findById(self, id: str) -> T:
-        return self.collection.find_one({'_id': id})
+        try:
+            return DictToObj(self.findOne({'_id': id}))
+        except Exception:
+            return None
 
     @abstractmethod
     def create(self, entity: T) -> T:
@@ -30,9 +39,14 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def update(self, entity: T) -> T:
-        _id = ObjectId(entity._id)
-        _set = entity.__dict__
-        del _set['_id']
+        if ObjectId.is_valid(entity._id):
+            _id = ObjectId(entity._id)
+
+        # _set = entity.__dict__
+        _set = DictFromClass(entity)
+
+        _set.pop('_id', None)
+
         return self.collection.update_one({"_id": _id}, {"$set": _set})
 
     @abstractmethod
@@ -41,4 +55,4 @@ class MongoRepository(Generic[T]):
 
     @abstractmethod
     def delete(self, query) -> None:
-        self.collection.delete_one(query)
+        self.collection.find_one_and_delete(query)
