@@ -1,4 +1,14 @@
 
+class DictToObj(object):
+    """
+    Turns a dictionary into a class
+    """
+    # ----------------------------------------------------------------------
+
+    def __init__(self, dictionary):
+        """Constructor"""
+        for key in dictionary:
+            setattr(self, key, dictionary[key])
 
 class ConvertDictToClass(dict):
 
@@ -10,3 +20,14 @@ class ConvertDictToClass(dict):
     # def __init__(self, my_dict):
     #     for key in my_dict:
     #         setattr(self, key, my_dict[key])
+
+
+def DictFromClass(cls, _excluded_keys={}):
+
+    # _excluded_keys = set(A.__dict__.keys())
+   
+    return dict(
+        (key, value)
+        for (key, value) in cls.__dict__.items()
+        if key not in _excluded_keys
+    )
