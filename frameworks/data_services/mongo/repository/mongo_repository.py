@@ -24,7 +24,7 @@ class MongoRepository(Generic[T]):
     @abstractmethod
     def findOne(self, query) -> T:
         findOne = self.collection.find_one(query)
-        return DictToObj(findOne)
+        return DictToObj(findOne) if findOne else None
 
     @abstractmethod
     def findById(self, id: str) -> T:

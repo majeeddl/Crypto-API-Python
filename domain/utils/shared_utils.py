@@ -7,8 +7,11 @@ class DictToObj(object):
 
     def __init__(self, dictionary):
         """Constructor"""
-        for key in dictionary:
-            setattr(self, key, dictionary[key])
+        try:
+            for key in dictionary:
+                setattr(self, key, dictionary[key])
+        except:
+            dictionary
 
 class ConvertDictToClass(dict):
 
