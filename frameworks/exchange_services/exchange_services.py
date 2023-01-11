@@ -13,6 +13,7 @@ class ExchangeServices(ExchangeServiceAbstract):
         exchange_class = getattr(ccxt, exchange_id)
         exchange = exchange_class()
         exchange.enableRateLimit = True
+        exchange.options = { }
         print(exchange_id)
         print(exchange_class)
         m = exchange.fetchTickers()

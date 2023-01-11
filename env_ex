@@ -1,0 +1,6 @@
+
+MONGO_URI ="mongodb://localhost:27017/crypto-dev";
+TELEGRAM_TOKEN=
+
+BYBIT_API = 'bybit api'
+BYBIT_SECRET = 'bybit secret'
