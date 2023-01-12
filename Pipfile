@@ -19,6 +19,7 @@ bybit-ws = "*"
 pybit = "*"
 pymongo = "*"
 dependency-injector = "*"
+jupyter = "*"
 
 [dev-packages]
 
