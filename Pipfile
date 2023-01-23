@@ -11,6 +11,7 @@ pandas = "*"
 numpy = "*"
 python-dotenv = "*"
 itables = "*"
+pybit = "*"
 
 [dev-packages]
 
