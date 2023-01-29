@@ -2,6 +2,7 @@ import os
 import websocket
 
 from flask import Flask
+from flask_cors import CORS, cross_origin
 
 from adapters.api import initAPI
 from configuration.config import ENV_PORT, ENV_DEBUG
@@ -12,6 +13,7 @@ from configuration.config import ENV_PORT, ENV_DEBUG
 #     return app
 
 app = Flask(__name__)
+cors = CORS(app)
 
 initAPI(app)
 

@@ -12,6 +12,7 @@ numpy = "*"
 python-dotenv = "*"
 itables = "*"
 pybit = "*"
+flask-cors = "*"
 
 [dev-packages]
 
