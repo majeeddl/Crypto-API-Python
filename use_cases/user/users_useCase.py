@@ -9,7 +9,7 @@ class UserUseCases:
     def __init__(self) -> None:
         self.dataServices = DataServices()
 
-    def getUsers(self) -> list(User):
+    def getUsers(self) -> list:
         return self.dataServices.users.find()
 
     def getUserById(self,id:str) -> User:
