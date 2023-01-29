@@ -17,8 +17,9 @@ def handle_message(msg):
 
 # To subscribe to multiple symbols,
 # pass a list: ["BTCUSDT", "ETHUSDT"]
+
 ws_linear.trade_stream(
-    handle_message, "EOSUSDT"
+    handle_message, "APETUSDT"
 )
 while True:
     sleep(1)
