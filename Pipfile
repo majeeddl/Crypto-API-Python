@@ -13,6 +13,7 @@ python-dotenv = "*"
 itables = "*"
 pybit = "*"
 flask-cors = "*"
+pymongo = "*"
 
 [dev-packages]
 
