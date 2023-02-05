@@ -5,7 +5,7 @@ bybit_url='https://api.bybit.com'
 
 
 ENV_DEBUG=os.getenv("DEBUG",True)
-ENV_PORT=os.getenv("PORT",5000)
+ENV_PORT=os.getenv("PORT",12000)
 MONGO_URI = os.getenv('MONGO_URI')
 
 class Config:
