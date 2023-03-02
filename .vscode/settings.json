@@ -2,5 +2,6 @@
   "python.testing.pytestArgs": ["tests"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
-  "terminal.integrated.env.windows": { "PYTHONPATH": "${workspaceFolder}" }
+  "terminal.integrated.env.windows": { "PYTHONPATH": "${workspaceFolder}" },
+  "python.envFile": "${workspaceFolder}/.env"
 }

@@ -13,10 +13,9 @@ from configuration.config import ENV_PORT, ENV_DEBUG
 #     return app
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app)
 
 initAPI(app)
-
 
 if __name__ == '__main__':
     app.run(debug=ENV_DEBUG, port=ENV_PORT, use_reloader=False, threaded=True)
