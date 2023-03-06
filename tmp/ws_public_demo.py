@@ -12,6 +12,7 @@ topic = "kline.5.COCOSUSDT"
 
 
 def on_message(ws, message):
+    print('message received')
     data = json.loads(message)
     print(data)
 
@@ -55,9 +56,9 @@ def connWS():
     )
     ws.run_forever(
         # http_proxy_host='127.0.0.1',
-      		# http_proxy_port=1087,
-      		ping_interval=20,
-      		ping_timeout=10
+        # http_proxy_port=1087,
+        ping_interval=20,
+        ping_timeout=10
     )
 
 
