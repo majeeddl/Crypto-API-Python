@@ -14,6 +14,7 @@ itables = "*"
 pybit = "*"
 flask-cors = "*"
 pymongo = "*"
+flask-socketio = "*"
 
 [dev-packages]
 
