@@ -15,6 +15,7 @@ pybit = "*"
 flask-cors = "*"
 pymongo = "*"
 flask-socketio = "*"
+redis = "*"
 
 [dev-packages]
 

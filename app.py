@@ -21,7 +21,7 @@ app = Flask(__name__)
 CORS(app)
 
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-socketio = SocketIO(app, cors_allowed_origins="*")
+socketio = SocketIO(app, cors_allowed_origins="*", message_queue='redis://')
 
 
 def connectWs():
