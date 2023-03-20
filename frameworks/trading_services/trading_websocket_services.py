@@ -4,8 +4,11 @@ import time
 from datetime import datetime
 import websocket
 
+topic = "kline.5.COCOSUSDT"
 
-def on_message(ws,message):
+
+def on_message(ws, message):
+    print('base on_message => message received')
     data = json.loads(message)
     print(data)
 
@@ -38,16 +41,18 @@ def on_ping(ws, *data):
 
 class TradingWebsocketServices():
 
-    def __init__(self, topic="kline.5.COCOSUSDT", on_message=on_message):
+    def __init__(self, topic="kline.5.BTCUSDT", on_message=on_message):
+        print('init TradingWebsocketServices')
+        # websocket.enableTrace(True)
         self.ws = websocket.WebSocketApp(
             # "wss://stream.bybit.com/contract/usdt/public/v3",
             "wss://stream.bybit.com/v5/public/linear",
-            on_message=on_message
-            # on_error=on_error,
-            # on_close=on_close,
-            # on_ping=on_ping,
-            # on_pong=on_pong,
-            # on_open=on_open
+            on_message=on_message,
+            on_error=on_error,
+            on_close=on_close,
+            on_ping=on_ping,
+            on_pong=on_pong,
+            on_open=on_open
         )
         pass
 
@@ -55,6 +60,7 @@ class TradingWebsocketServices():
         pass
 
     def start(self):
+        print('start TradingWebsocketServices')
         self.ws.run_forever(
             ping_interval=20,
             ping_timeout=10
