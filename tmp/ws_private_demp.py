@@ -7,7 +7,8 @@ import websocket
 
 logging.basicConfig(filename='logfile_wrapper.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(message)s')
-topic = "position"
+# topic = "position"
+topic='order'
 
 
 def on_message(ws, message):
@@ -25,8 +26,8 @@ def on_close(ws):
 
 
 def send_auth(ws):
-    key = 'key'
-    secret = 'secret'
+    key = 'W6NijfaYfjlsScqXXz'
+    secret = 'S81OckY1zrWpq0LM73VrV00be9WmZWPL3xLW'
     expires = int((time.time() + 10) * 1000)
     _val = f'GET/realtime{expires}'
     print(_val)
