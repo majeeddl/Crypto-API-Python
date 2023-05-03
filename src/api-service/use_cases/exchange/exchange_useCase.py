@@ -17,3 +17,6 @@ class ExchangeUseCases:
 
     def createExchange(self, exchange:Exchange):
         return self.dataServices.exchanges.create(exchange)
+
+    def update_exchange(self, exchange:Exchange):
+        return self.dataServices.exchanges.update(exchange)
